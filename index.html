@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,64 +10,50 @@
     <script src="https://kit.fontawesome.com/102b619134.js" crossorigin="anonymous"></script>
     <title>Sports Trivia</title>
 </head>
+
 <body>
 
-<!-- website header -->
-<h1 class="title is-1"><i class="fas fa-basketball-ball"></i>Sports Trivia<i class="fas fa-futbol"></i></h1>
-<h3 class="title is-4">If you not doing any sports at least have some knowledge about it <i class="fas fa-exclamation"></i></h3>
+    <!-- website header -->
+    <h1 class="title is-1"><i class="fas fa-basketball-ball"></i>Sports Trivia<i class="fas fa-futbol"></i></h1>
+    <h3 class="title is-4">If you not doing any sports at least have some knowledge about it <i
+            class="fas fa-exclamation"></i></h3>
 
 
-<!-- difficulty dropdown -->
-<div class="dropdown" id="diff-dropdown">
-    <div class="dropdown-trigger">
-      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3" id="diff-button">
-        <span>Choose difficulty</span>
-        <span class="icon is-small">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </button>
+    <!-- difficulty dropdown -->
+    <div class="select is-rounded is-primary">
+        <select name="difficulty" id="diff-dropdown">
+            <option value="none" selected disabled hidden>Select difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+    </div>  
+
+
+    <!-- type dropdown -->
+    <div class="select is-rounded is-primary">
+        <select name="type" id="qType-dropdown">
+            <option value="none" selected disabled hidden>Select a number of questions</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </select>
     </div>
-    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-      <div class="dropdown-content">
-        <a href="#" class="dropdown-item">
-          Easy
-        </a>
-        <a href="#" class="dropdown-item">
-          Medium
-        </a>
-        <a href="#" class="dropdown-item">
-          Hard
-        </a>
-      </div>
-    </div>
-  </div>
+
+    <!--start button-->
+    <button class="button is-primary is-rounded" id="start-button">Start!</button>
 
 
+    <!-- questions -->
+    <div class="questions">
 
-  <!-- type dropdown -->
-  <div class="dropdown" id="type-dropdown">
-    <div class="dropdown-trigger">
-      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3" id="qType-button">
-        <span>Choose type</span>
-        <span class="icon is-small">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </button>
     </div>
-    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-      <div class="dropdown-content">
-        <a href="#" class="dropdown-item">
-          Multiple Choice
-        </a>
-        <a href="#" class="dropdown-item">
-          True / False
-        </a>
-      </div>
-    </div>
-  </div>
+
+
 
 
     <!--script file-->
     <script src="./index.js"></script>
 </body>
+
 </html>
