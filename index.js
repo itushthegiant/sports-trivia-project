@@ -31,51 +31,53 @@ function renderQuestions(questions) {
 
 
 function renderQuestion(data) {
-    const answers = document.querySelectorAll('.radio');
     const div = document.createElement('div');
     const questDiv = document.querySelector('.questions')
     const question = data.question;
     const correctAnswer = data.correct_answer;
     const incorrectAnswers = data.incorrect_answers;
-    incorrectAnswers.push(correctAnswer);
-    console.log(incorrectAnswers, correctAnswer)
-    shuffle(incorrectAnswers);
+    const allAnswers = shuffle([...incorrectAnswers, correctAnswer]);
+    console.log(allAnswers, correctAnswer)
     div.setAttribute('class', 'card');
-    const numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
     div.innerHTML = `
             <div class="content is-large">
                 <div class="tile is-child notification is-info">
                     <p>${question}</p>
-                    <div class="control">
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            ${incorrectAnswers[0]}
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            ${incorrectAnswers[1]}
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            ${incorrectAnswers[2]}
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            ${incorrectAnswers[3]}
-                        </label>
-                    </div>
+                    <ul>
+                    ${renderAnswers(allAnswers)}
+                    </ul>
                 </div>
             </div>
         `
     questDiv.appendChild(div)
-    answers.forEach(element => {
-        element.addEventListener('click', (e) => {
-            console.log(e)
-        })
-    })
+    div.addEventListener('click', (e) => checkAnswer(e, div, correctAnswer))
 }
 
 
+
+//////////////////////////////////
+////correct & incorrect answers///
+//////////////////////////////////
+function checkAnswer(e, div, correctAnswer) {
+    if (e.target.className === 'answer' && div.className !== "selected") {
+       div.className = 'selected'
+       if (e.target.innerText === correctAnswer) {
+           e.target.style.color = 'green';
+       } else {
+            e.target.style.color = 'red';
+       }
+    }
+}
+
+
+
+
+//////////////////////////////////
+/////create a list of answers/////
+//////////////////////////////////
+function renderAnswers(answers) {
+    return answers.map(answer => `<li class='answer'>${answer}</li>`).join('');
+}
 
 
 
@@ -120,4 +122,12 @@ function shuffle(incorrectAnswers) {
     return incorrectAnswers;
 }
 /////*credit to Fisher-Yates from stackOverflow
+
+
+
+
+
+
+
+
 
