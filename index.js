@@ -3,6 +3,7 @@
 //////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     attachEventListeners()
+    resetEvent()
 })
 
 
@@ -105,8 +106,10 @@ function attachEventListeners() {
 }
 
 
-
-
+function resetEvent() {
+    const resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener('click', () => location.reload())
+}
 
 
 //////////////////////////////////
