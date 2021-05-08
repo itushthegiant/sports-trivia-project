@@ -5,3 +5,11 @@ body {
 li {
     list-style-type: none !important;
 }
+
+.correct {
+    color: aquamarine;
+}
+
+.incorrect {
+    color: red;
+}
