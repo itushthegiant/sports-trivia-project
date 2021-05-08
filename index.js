@@ -23,9 +23,7 @@ function fetchQuestions() {
 ////create & display questions////
 //////////////////////////////////
 function renderQuestions(questions) {
-    questions.forEach(result => {
-        renderQuestion(result)
-    })
+    questions.forEach(result => renderQuestion(result))
 }
 
 
@@ -76,7 +74,7 @@ function checkAnswer(e, div, correctAnswer) {
 /////create a list of answers/////
 //////////////////////////////////
 function renderAnswers(answers) {
-    return answers.map(answer => `<li class='answer'>${answer}</li>`).join('');
+    return answers.map(answer => `<li class='answer'><i class="fab fa-diaspora"></i>${answer}</li>`).join('');
 }
 
 
@@ -96,9 +94,23 @@ function attachEventListeners() {
         numOfQuestions = e.target.value
     })
     startButton.addEventListener('click', () => {
+        const counter = document.getElementById('counters')
         fetchQuestions()
+        counter.removeAttribute('hidden');
     })
 }
+
+
+
+//////////////////////////////////
+////////////counters//////////////
+//////////////////////////////////
+function counting() {
+    
+}
+
+
+
 
 
 
