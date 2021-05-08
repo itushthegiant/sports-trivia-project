@@ -61,8 +61,12 @@ function checkAnswer(e, div, correctAnswer) {
        div.className = 'selected'
        if (e.target.innerText === correctAnswer) {
            e.target.style.color = 'green';
+           const correctCounter = document.getElementById('correct-counter');
+           correctCounter.innerText++
        } else {
             e.target.style.color = 'red';
+            const incorrectCounter = document.getElementById('incorrect-counter');
+            incorrectCounter.innerText++
        }
     }
 }
@@ -99,16 +103,6 @@ function attachEventListeners() {
         counter.removeAttribute('hidden');
     })
 }
-
-
-
-//////////////////////////////////
-////////////counters//////////////
-//////////////////////////////////
-function counting() {
-    
-}
-
 
 
 
