@@ -128,6 +128,10 @@ function attachEventListeners() {
 
 
 
+
+//////////////////////////////
+/////////reset button/////////
+//////////////////////////////
 function resetEvent() {
     const resetButton = document.getElementById('reset-button');
     resetButton.addEventListener('click', () => reset())
@@ -135,10 +139,6 @@ function resetEvent() {
 
 
 
-
-//////////////////////////////
-/////////reset button/////////
-//////////////////////////////
 function reset() {
     counter.classList.add('is-hidden');
     resetDiv.classList.add('is-hidden');
@@ -147,6 +147,8 @@ function reset() {
     difficulty, numOfQuestions = undefined
     resetQuestions()
 }
+
+
 
 
 ///////////////////////////////////////
