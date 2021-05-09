@@ -7,6 +7,11 @@ const resetDiv = document.getElementById("reset-div");
 const questDiv = document.querySelector('.questions')
 const correctCounter = document.getElementById('correct-counter');
 const incorrectCounter = document.getElementById('incorrect-counter');
+const diffDrop = document.getElementById('diff-dropdown');
+const numOfQuestDrop = document.getElementById('qType-dropdown');
+let difficulty;
+let numOfQuestions;
+
 
 
 //////////////////////////////////
@@ -21,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////
 //////////fetch questions/////////
 //////////////////////////////////
-let difficulty;
-let numOfQuestions;
 function fetchQuestions() {
     if (!numOfQuestions || !difficulty) {
         return
@@ -109,8 +112,7 @@ function renderAnswers(answers) {
 ////////dropdown section//////////
 //////////////////////////////////
 function attachEventListeners() {
-    const diffDrop = document.getElementById('diff-dropdown');
-    const numOfQuestDrop = document.getElementById('qType-dropdown');
+    
     diffDrop.addEventListener('change', (e) => {
         difficulty = e.target.value
     })
@@ -128,11 +130,28 @@ function attachEventListeners() {
 
 function resetEvent() {
     const resetButton = document.getElementById('reset-button');
-    resetButton.addEventListener('click', () => location.reload())
+    resetButton.addEventListener('click', () => reset())
 }
 
 
 
+
+//////////////////////////////
+/////////reset button/////////
+//////////////////////////////
+function reset() {
+    counter.classList.add('is-hidden');
+    resetDiv.classList.add('is-hidden');
+    diffDrop.selectedIndex = 0;
+    numOfQuestDrop.selectedIndex = 0;
+    difficulty, numOfQuestions = undefined
+    resetQuestions()
+}
+
+
+///////////////////////////////////////
+///reset the questions and counters////
+///////////////////////////////////////
 function resetQuestions() {
     questDiv.innerHTML = '';
     correctCounter.innerHTML = 0;
