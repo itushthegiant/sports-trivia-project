@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let difficulty;
 let numOfQuestions;
 function fetchQuestions() {
-    if (!numOfQuestions || ! difficulty) {
+    if (!numOfQuestions || !difficulty) {
         return
     }
     startButton.classList.add('is-loading');
@@ -79,7 +79,7 @@ function renderQuestion(data) {
 ////correct & incorrect answers///
 //////////////////////////////////
 function checkAnswer(e, div, correctAnswer) {
-    if (e.target.className === 'answer' && div.className !== "selected block") {
+    if (e.target.className === 'answer' && div.className !== 'selected block') {
         div.className = 'selected block'
         if (e.target.innerText === correctAnswer) {
             e.target.style.color = 'green';
@@ -110,8 +110,8 @@ function renderAnswers(answers) {
 ////////dropdown section//////////
 //////////////////////////////////
 function attachEventListeners() {
-    const diffDrop = document.getElementById("diff-dropdown");
-    const numOfQuestDrop = document.getElementById("qType-dropdown");
+    const diffDrop = document.getElementById('diff-dropdown');
+    const numOfQuestDrop = document.getElementById('qType-dropdown');
     diffDrop.addEventListener('change', (e) => {
         difficulty = e.target.value
     })
@@ -128,7 +128,7 @@ function attachEventListeners() {
 
 
 function resetEvent() {
-    const resetButton = document.getElementById("reset-button");
+    const resetButton = document.getElementById('reset-button');
     resetButton.addEventListener('click', () => location.reload())
 }
 
