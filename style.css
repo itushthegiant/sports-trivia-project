@@ -13,3 +13,32 @@ li {
 .incorrect {
     color: red;
 }
+
+
+#counters {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: white;
+    z-index: 5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 13px 0px #333;
+}
+
+.questions li {
+    cursor: pointer;
+}
+
+.questions li:hover {
+    color: black;
+}
+
+.answer i {
+    margin-right: 5px;
+}
+
+.title i {
+    margin-right: 5px;
+    margin-left: 5px;
+}

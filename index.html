@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- head -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
 
 
 <!-- body -->
+
 <body>
 
     <!-- website header -->
@@ -27,24 +29,24 @@
     <div class="block">
         <div class="select is-rounded is-primary">
             <select name="difficulty" id="diff-dropdown">
-                <option value="none" selected disabled hidden>Select difficulty</option>
+                <option value="none" selected disabled>Select difficulty</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option value="hard">Hard</option>
             </select>
-        </div>  
-    
-    
+        </div>
+
+
         <!-- type dropdown -->
         <div class="select is-rounded is-primary">
             <select name="type" id="qType-dropdown">
-                <option value="none" selected disabled hidden>Select a number of questions</option>
+                <option value="none" selected disabled>Select a number of questions</option>
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
             </select>
         </div>
-    
+
         <!--start button-->
         <button class="button is-primary is-rounded" id="start-button">Start!</button>
     </div>
@@ -52,15 +54,15 @@
 
     <!-- counter -->
     <div class="block">
-        <div hidden id="counters">
+        <div id="counters" class="is-hidden">
             <div class="correct">
-                <p>Correct answers  <i class="fas fa-check-circle"></i></p>
+                <p>Correct answers<i class="fas fa-check-circle"></i></p>
                 <h3 id='correct-counter'>
                     0
                 </h3>
             </div>
             <div class="incorrect">
-                <p>Incorrect answers  <i class="fas fa-times-circle"></i></p>
+                <p>Incorrect answers<i class="fas fa-times-circle"></i></p>
                 <h3 id='incorrect-counter'>
                     0
                 </h3>
@@ -75,8 +77,8 @@
 
     <!-- reset button -->
     <div class="block">
-        <div hidden id="reset-div">
-            <button class="button is-dark is-rounded is-medium" id="reset-button">reset</button>
+        <div id="reset-div" class="is-hidden">
+            <button class="button is-danger is-rounded is-medium" id="reset-button">reset</button>
         </div>
     </div>
 

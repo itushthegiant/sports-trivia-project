@@ -50,7 +50,7 @@ function renderQuestion(data) {
             </div>
         </div>
                     `;
-            
+
     questDiv.appendChild(div)
     div.addEventListener('click', (e) => checkAnswer(e, div, correctAnswer))
 }
@@ -62,16 +62,16 @@ function renderQuestion(data) {
 //////////////////////////////////
 function checkAnswer(e, div, correctAnswer) {
     if (e.target.className === 'answer' && div.className !== "selected block") {
-       div.className = 'selected block'
-       if (e.target.innerText === correctAnswer) {
-           e.target.style.color = 'green';
-           const correctCounter = document.getElementById('correct-counter');
-           correctCounter.innerText++
-       } else {
+        div.className = 'selected block'
+        if (e.target.innerText === correctAnswer) {
+            e.target.style.color = 'green';
+            const correctCounter = document.getElementById('correct-counter');
+            correctCounter.innerText++
+        } else {
             e.target.style.color = 'red';
             const incorrectCounter = document.getElementById('incorrect-counter');
             incorrectCounter.innerText++
-       }
+        }
     }
 }
 
