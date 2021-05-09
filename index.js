@@ -4,7 +4,9 @@
 const startButton = document.getElementById("start-button");
 const counter = document.getElementById('counters')
 const resetDiv = document.getElementById("reset-div");
-
+const questDiv = document.querySelector('.questions')
+const correctCounter = document.getElementById('correct-counter');
+const incorrectCounter = document.getElementById('incorrect-counter');
 
 
 //////////////////////////////////
@@ -28,8 +30,8 @@ function fetchQuestions() {
     startButton.classList.add('is-loading');
     counter.classList.remove('is-hidden');
     resetDiv.classList.remove('is-hidden');
+    resetQuestions()
     const url = `https://opentdb.com/api.php?amount=${numOfQuestions}&category=21&difficulty=${difficulty}&type=multiple`
-
     fetch(url)
         .then(resp => resp.json())
         .then(data => renderQuestions(data.results))
@@ -49,7 +51,6 @@ function renderQuestions(questions) {
 
 function renderQuestion(data) {
     const div = document.createElement('div');
-    const questDiv = document.querySelector('.questions')
     const question = data.question;
     const correctAnswer = data.correct_answer;
     const incorrectAnswers = data.incorrect_answers;
@@ -83,11 +84,9 @@ function checkAnswer(e, div, correctAnswer) {
         div.className = 'selected block'
         if (e.target.innerText === correctAnswer) {
             e.target.style.color = 'green';
-            const correctCounter = document.getElementById('correct-counter');
             correctCounter.innerText++
         } else {
             e.target.style.color = 'red';
-            const incorrectCounter = document.getElementById('incorrect-counter');
             incorrectCounter.innerText++
         }
     }
@@ -134,6 +133,11 @@ function resetEvent() {
 
 
 
+function resetQuestions() {
+    questDiv.innerHTML = '';
+    correctCounter.innerHTML = 0;
+    incorrectCounter.innerHTML = 0;
+}
 
 
 //////////////////////////////////
