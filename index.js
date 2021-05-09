@@ -1,7 +1,16 @@
 //////////////////////////////////
+/////////global variables/////////
+//////////////////////////////////
+const startButton = document.getElementById("start-button");
+const counter = document.getElementById('counters')
+const resetDiv = document.getElementById("reset-div");
+
+
+
+//////////////////////////////////
 //////when page first loaded//////
 //////////////////////////////////
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     attachEventListeners()
     resetEvent()
 })
@@ -13,7 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
 let difficulty;
 let numOfQuestions;
 function fetchQuestions() {
-    fetch(`https://opentdb.com/api.php?amount=${numOfQuestions}&category=21&difficulty=${difficulty}&type=multiple`)
+    if (!numOfQuestions || ! difficulty) {
+        return
+    }
+    startButton.classList.add('is-loading');
+    counter.classList.remove('is-hidden');
+    resetDiv.classList.remove('is-hidden');
+    const url = `https://opentdb.com/api.php?amount=${numOfQuestions}&category=21&difficulty=${difficulty}&type=multiple`
+
+    fetch(url)
         .then(resp => resp.json())
         .then(data => renderQuestions(data.results))
         .catch(error => console.error(error))
@@ -25,6 +42,7 @@ function fetchQuestions() {
 //////////////////////////////////
 function renderQuestions(questions) {
     questions.forEach(result => renderQuestion(result))
+    startButton.classList.remove('is-loading');
 }
 
 
@@ -92,7 +110,6 @@ function renderAnswers(answers) {
 ////////dropdown section//////////
 //////////////////////////////////
 function attachEventListeners() {
-    const startButton = document.getElementById("start-button");
     const diffDrop = document.getElementById("diff-dropdown");
     const numOfQuestDrop = document.getElementById("qType-dropdown");
     diffDrop.addEventListener('change', (e) => {
@@ -102,19 +119,21 @@ function attachEventListeners() {
         numOfQuestions = e.target.value
     })
     startButton.addEventListener('click', () => {
-        const resetDiv = document.getElementById("reset-div");
-        const counter = document.getElementById('counters')
         fetchQuestions()
-        counter.removeAttribute('hidden');
-        resetDiv.removeAttribute('hidden');
     })
 }
+
+
+
 
 
 function resetEvent() {
     const resetButton = document.getElementById("reset-button");
     resetButton.addEventListener('click', () => location.reload())
 }
+
+
+
 
 
 //////////////////////////////////
