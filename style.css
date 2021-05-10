@@ -1,5 +1,14 @@
+
+
 body {
+    background-color: #A3BCB6;
     text-align: center;
+}
+
+
+
+h1 {
+    color: black;
 }
 
 li {
@@ -26,6 +35,12 @@ li {
     box-shadow: 2px 3px 13px 0px #333;
 }
 
+
+.questions p {
+    color: black;
+}
+
+
 .questions li {
     cursor: pointer;
 }
@@ -41,4 +56,9 @@ li {
 .title i {
     margin-right: 5px;
     margin-left: 5px;
+}
+
+#question {
+    box-shadow: 2px 3px 13px 0px #333;
+    padding: 60px;
 }

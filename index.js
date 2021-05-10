@@ -61,9 +61,9 @@ function renderQuestion(data) {
     console.log(allAnswers, correctAnswer)
     div.setAttribute('class', 'block');
     div.innerHTML = `
-        <div class='block'>
+        <div class="column is-three-fifths is-offset-one-fifth">
             <div class="content is-large">
-                <div class="tile is-child notification is-info">
+                <div class="tile is-child notification is-info" id="question">
                     <p>${question}</p>
                     <ul>
                     ${renderAnswers(allAnswers)}
@@ -72,7 +72,6 @@ function renderQuestion(data) {
             </div>
         </div>
                     `;
-
     questDiv.appendChild(div)
     div.addEventListener('click', (e) => checkAnswer(e, div, correctAnswer))
 }
