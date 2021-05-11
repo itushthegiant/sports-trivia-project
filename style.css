@@ -1,6 +1,7 @@
 
 
 body {
+    height: fit-content;
     background-color: #4972E0;
     text-align: center;
 }
