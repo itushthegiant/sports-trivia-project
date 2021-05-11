@@ -1,13 +1,13 @@
 
 
 body {
-    background-color: #A3BCB6;
+    background-color: #4972E0;
     text-align: center;
 }
 
 
-
 h1 {
+    padding: 20px;
     color: black;
 }
 
@@ -16,7 +16,7 @@ li {
 }
 
 .correct {
-    color: aquamarine;
+    color: green;
 }
 
 .incorrect {
@@ -28,11 +28,12 @@ li {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background: white;
+    background: #1952AA;;
     z-index: 5;
-    padding: 20px;
+    padding: 32px;
     border-radius: 5px;
-    box-shadow: 2px 3px 13px 0px #333;
+    box-shadow: 2px 3px 13px 0px #F74600;
+    text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
 }
 
 
@@ -42,6 +43,9 @@ li {
 
 
 .questions li {
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
     cursor: pointer;
 }
 
@@ -54,11 +58,36 @@ li {
 }
 
 .title i {
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #question {
-    box-shadow: 2px 3px 13px 0px #333;
+    background-color: #1952AA;
+    box-shadow: 2px 3px 13px 0px #F74600;
     padding: 60px;
+}
+
+#start-button {
+    background: #F74600;
+}
+
+#diff-dropdown {
+    color: white;
+    border-color: #F74600;
+    background: #1952AA;
+}
+
+#qType-dropdown {
+    color: white;
+    border-color: #F74600;
+    background: #1952AA;
+}
+
+#sentence {
+    padding: 10px;
+}
+
+#dropdowns {
+    padding: 20px;
 }

@@ -3,7 +3,7 @@
 //////////////////////////////////
 const startButton = document.getElementById("start-button");
 const counter = document.getElementById('counters')
-const resetDiv = document.getElementById("reset-div");
+const resetDiv = document.getElementById('reset-div');
 const questDiv = document.querySelector('.questions')
 const correctCounter = document.getElementById('correct-counter');
 const incorrectCounter = document.getElementById('incorrect-counter');
@@ -11,6 +11,8 @@ const diffDrop = document.getElementById('diff-dropdown');
 const numOfQuestDrop = document.getElementById('qType-dropdown');
 let difficulty;
 let numOfQuestions;
+
+
 
 
 
@@ -27,14 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
 //////////fetch questions/////////
 //////////////////////////////////
 function fetchQuestions() {
-    if (!numOfQuestions || !difficulty) {
-        return
-    }
+    const url = `https://opentdb.com/api.php?amount=${numOfQuestions}&category=21&difficulty=${difficulty}&type=multiple`
     startButton.classList.add('is-loading');
     counter.classList.remove('is-hidden');
     resetDiv.classList.remove('is-hidden');
     resetQuestions()
-    const url = `https://opentdb.com/api.php?amount=${numOfQuestions}&category=21&difficulty=${difficulty}&type=multiple`
+    if (!numOfQuestions || !difficulty) {
+        return
+    }
     fetch(url)
         .then(resp => resp.json())
         .then(data => renderQuestions(data.results))
@@ -58,7 +60,7 @@ function renderQuestion(data) {
     const correctAnswer = data.correct_answer;
     const incorrectAnswers = data.incorrect_answers;
     const allAnswers = shuffle([...incorrectAnswers, correctAnswer]);
-    console.log(allAnswers, correctAnswer)
+    console.log(correctAnswer)
     div.setAttribute('class', 'block');
     div.innerHTML = `
         <div class="column is-three-fifths is-offset-one-fifth">
@@ -111,7 +113,7 @@ function renderAnswers(answers) {
 ////////dropdown section//////////
 //////////////////////////////////
 function attachEventListeners() {
-    
+    const resetButton = document.getElementById('reset-button');
     diffDrop.addEventListener('change', (e) => {
         difficulty = e.target.value
     })
@@ -121,6 +123,7 @@ function attachEventListeners() {
     startButton.addEventListener('click', () => {
         fetchQuestions()
     })
+    resetButton.addEventListener('click', () => reset())
 }
 
 
@@ -131,11 +134,6 @@ function attachEventListeners() {
 //////////////////////////////
 /////////reset button/////////
 //////////////////////////////
-function resetEvent() {
-    const resetButton = document.getElementById('reset-button');
-    resetButton.addEventListener('click', () => reset())
-}
-
 
 
 function reset() {

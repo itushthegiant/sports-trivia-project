@@ -20,13 +20,12 @@
     <!-- website header -->
     <div class="block">
         <h1 class="title is-1"><i class="fas fa-basketball-ball"></i>Sports Trivia<i class="fas fa-futbol"></i></h1>
-        <h3 class="title is-4">If you're not doing any sports at least have some knowledge about it <i
-                class="fas fa-exclamation"></i></h3>
+        <h3 id="sentence" class="title is-4">If you're not doing any sports at least have some knowledge about it<i class="fas fa-exclamation"></i></h3>
     </div>
 
 
     <!-- difficulty dropdown -->
-    <div class="block">
+    <div class="block" id="dropdowns">
         <div class="select is-rounded is-primary">
             <select name="difficulty" id="diff-dropdown">
                 <option value="none" selected disabled>Select difficulty</option>
@@ -56,13 +55,13 @@
     <div class="block">
         <div id="counters" class="is-hidden">
             <div class="correct">
-                <p>Correct answers<i class="fas fa-check-circle"></i></p>
+                <p><i class="fas fa-check-circle"></i></p>
                 <h3 id='correct-counter'>
                     0
                 </h3>
             </div>
             <div class="incorrect">
-                <p>Incorrect answers<i class="fas fa-times-circle"></i></p>
+                <p><i class="fas fa-times-circle"></i></p>
                 <h3 id='incorrect-counter'>
                     0
                 </h3>
